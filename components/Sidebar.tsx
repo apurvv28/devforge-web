@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   Rocket, Zap, Brain, ShieldCheck, Building2, Package,
   BookOpen, GitCommitHorizontal, Handshake, ShieldAlert,
-  Plus, Minus, ChevronRight, X,
+  Plus, Minus, ChevronRight, X, Users,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
@@ -95,6 +95,11 @@ const sidebarData: { title: string; icon: LucideIcon; items: { title: string; pa
     title: 'Security Policy',
     icon: ShieldAlert,
     items: [{ title: 'Vulnerability Reporting', path: '/docs/security-policy' }],
+  },
+  {
+    title: 'Developers',
+    icon: Users,
+    items: [{ title: 'Our Team', path: '/docs/developers' }],
   },
 ]
 

@@ -204,9 +204,9 @@ export function Navbar() {
             onClick={() => setIsAIOpen(!isAIOpen)}
             className="relative p-2 rounded-xl transition-all hover:scale-105"
             style={{
-              color: 'var(--accent)',
-              background: isAIOpen ? 'var(--accent-light)' : 'transparent',
-              border: isAIOpen ? '1px solid var(--border-strong)' : '1px solid transparent',
+              color: isAIOpen ? '#0a0f1a' : 'var(--accent)',
+              background: isAIOpen ? 'var(--accent)' : 'var(--accent-light)',
+              border: '1px solid var(--border-strong)',
             }}
             title={isAIOpen ? 'Close AI Assistant' : 'Open AI Assistant'}
             id="ai-assistant-toggle"

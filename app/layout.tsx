@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { GeistSans, GeistMono } from './fonts'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'DevForge - Agentic AI DevOps Pipeline Generator',
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )

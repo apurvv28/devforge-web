@@ -23,10 +23,10 @@ const sections = [
     title: 'Core Commands',
     desc: 'Init, update, preview, and rollback — the core DevForge CLI workflow.',
     links: [
-      { label: 'devforge init', href: '/docs/commands/init' },
-      { label: 'devforge update', href: '/docs/commands/update' },
-      { label: 'devforge preview', href: '/docs/commands/preview' },
-      { label: 'devforge rollback', href: '/docs/commands/rollback' },
+      { label: 'devforge init', href: '/docs/commands#init' },
+      { label: 'devforge update', href: '/docs/commands#update' },
+      { label: 'devforge preview', href: '/docs/commands#preview' },
+      { label: 'devforge rollback', href: '/docs/commands#rollback' },
     ],
   },
   {
@@ -34,10 +34,10 @@ const sections = [
     title: 'Agent System',
     desc: 'LLM providers, LangGraph orchestration, cache, and cross-session memory.',
     links: [
-      { label: 'How the Agent Works', href: '/docs/agent/how-it-works' },
-      { label: 'LLM Provider Setup', href: '/docs/agent/llm-setup' },
-      { label: 'Agent Graph (LangGraph)', href: '/docs/agent/graph' },
-      { label: 'Memory System', href: '/docs/agent/memory' },
+      { label: 'How the Agent Works', href: '/docs/agentic-workflow#how-it-works' },
+      { label: 'LLM Provider Setup', href: '/docs/agentic-workflow#llm-setup' },
+      { label: 'Agent Graph (LangGraph)', href: '/docs/agentic-workflow#langgraph' },
+      { label: 'Memory System', href: '/docs/agentic-workflow#memory' },
     ],
   },
   {
@@ -47,7 +47,7 @@ const sections = [
     links: [
       { label: 'Security Model', href: '/docs/security/model' },
       { label: 'Compliance Agent', href: '/docs/security/compliance' },
-      { label: 'devforge audit', href: '/docs/security/audit' },
+      { label: 'devforge audit', href: '/docs/commands#audit' },
       { label: 'Auto-Fix Capabilities', href: '/docs/security/auto-fix' },
     ],
   },
@@ -67,8 +67,8 @@ const sections = [
     title: 'Deployment & Diagnostics',
     desc: 'Automate AWS deployments and diagnose pipeline failures.',
     links: [
-      { label: 'devforge deploy', href: '/docs/deployment/deploy' },
-      { label: 'devforge diagnose', href: '/docs/deployment/diagnose' },
+      { label: 'devforge deploy', href: '/docs/commands#deploy' },
+      { label: 'devforge diagnose', href: '/docs/commands#diagnose' },
     ],
   },
   {
@@ -76,8 +76,7 @@ const sections = [
     title: 'Recommendations',
     desc: 'View, manage, and dismiss AI-generated pipeline recommendations.',
     links: [
-      { label: 'devforge recommendations', href: '/docs/recommendations/list' },
-      { label: 'Dismissing Recommendations', href: '/docs/recommendations/dismiss' },
+      { label: 'devforge recommendations', href: '/docs/commands#recommendations' },
     ],
   },
   {

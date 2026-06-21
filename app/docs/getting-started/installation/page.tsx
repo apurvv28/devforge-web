@@ -246,9 +246,9 @@ export default function InstallationPage() {
         <div className="grid sm:grid-cols-2 gap-4">
           {[
             { href: '/docs/getting-started/offline-mode', title: 'Offline Mode', desc: 'Run DevForge without any LLM in air-gapped environments.' },
-            { href: '/docs/commands/init', title: 'Full Init Reference', desc: 'Every flag and option for devforge init.' },
-            { href: '/docs/agent/llm-setup', title: 'LLM Setup Guide', desc: 'Deep-dive into each provider configuration.' },
-            { href: '/docs/security/audit', title: 'Audit & Compliance', desc: 'Scan generated workflows for NIST and ISO violations.' },
+            { href: '/docs/commands#init', title: 'Full Init Reference', desc: 'Every flag and option for devforge init.' },
+            { href: '/docs/agentic-workflow#llm-setup', title: 'LLM Setup Guide', desc: 'Deep-dive into each provider configuration.' },
+            { href: '/docs/commands#audit', title: 'Audit & Compliance', desc: 'Scan generated workflows for NIST and ISO violations.' },
           ].map((item) => (
             <Link key={item.href} href={item.href}
               className="flex items-center justify-between p-4 rounded-xl border transition-all hover:scale-[1.02]"

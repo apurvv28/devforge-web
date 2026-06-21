@@ -25,7 +25,7 @@ export function ChangelogFeed() {
         )
         const text = await response.text()
         const parsed = parseChangelog(text)
-        setEntries(parsed.slice(0, 3))
+        setEntries(parsed)
       } catch (error) {
         console.error('Failed to fetch changelog:', error)
       } finally {
@@ -43,7 +43,7 @@ export function ChangelogFeed() {
     let section: 'features' | 'fixes' | null = null
 
     for (const line of lines) {
-      const versionMatch = line.match(/^## \[([^\]]+)\]\(([^)]+)\) \(([^)]+)\)/)
+      const versionMatch = line.match(/^#+ \[([^\]]+)\]\(([^)]+)\) \(([^)]+)\)/)
       if (versionMatch) {
         if (current.version) {
           entries.push(current as ChangelogEntry)

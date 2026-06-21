@@ -81,7 +81,16 @@ const commands = [
   { id: 'rollback', label: 'devforge rollback' },
   { id: 'audit', label: 'devforge audit' },
   { id: 'deploy', label: 'devforge deploy' },
+  { id: 'jenkins-setup', label: 'devforge jenkins setup' },
   { id: 'diagnose', label: 'devforge diagnose' },
+  { id: 'agent-status', label: 'devforge agent status' },
+  { id: 'agent-reset', label: 'devforge agent reset' },
+  { id: 'agent-graph-status', label: 'devforge agent graph status' },
+  { id: 'agent-graph-reset', label: 'devforge agent graph reset' },
+  { id: 'cache-clear', label: 'devforge cache clear' },
+  { id: 'cache-stats', label: 'devforge cache stats' },
+  { id: 'cache-test-elasticache', label: 'devforge cache test-elasticache' },
+  { id: 'memory-stats', label: 'devforge memory:stats' },
   { id: 'recommendations', label: 'devforge recommendations' },
 ]
 
@@ -245,6 +254,93 @@ export default function CommandsPage() {
           </div>
         </Section>
 
+        {/* jenkins setup */}
+        <Section id="jenkins-setup" title="devforge jenkins setup" badge="Integration">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Automates the process of setting up a Jenkins job and wiring repository webhooks for a project.
+          </p>
+          <CodeBlock code="npx devforge jenkins setup --jenkins-url http://localhost:8080 --jenkins-user admin --jenkins-token my-token --overwrite" />
+          <div className="mt-5 rounded-xl border overflow-hidden" style={{ borderColor: 'var(--border)' }}>
+            <div className="px-4 py-2 text-xs font-semibold" style={{ background: 'var(--bg-code)', color: 'var(--text-tertiary)' }}>FLAGS</div>
+            <div className="px-4">
+              <Flag flag="--job-name <name>" desc="The name of the Jenkins job to create or update (defaults to detected project name)." />
+              <Flag flag="--jenkins-url <url>" desc="Jenkins controller URL (overrides stored configuration)." />
+              <Flag flag="--jenkins-user <user>" desc="Jenkins username (overrides stored configuration)." />
+              <Flag flag="--jenkins-token <token>" desc="Jenkins API token or password (overrides stored configuration)." />
+              <Flag flag="--credentials-id <id>" desc="The Jenkins credential ID for SCM checkout (default: github-credentials)." />
+              <Flag flag="--branch <branch>" desc="The git branch to configure for the job (default: current git branch)." />
+              <Flag flag="--overwrite" desc="Overwrite the job configuration if it already exists without prompting." />
+            </div>
+          </div>
+          <Note type="info">
+            Registers a GitHub webhook automatically if the <code className="font-mono text-xs">GITHUB_TOKEN</code> environment variable is set.
+          </Note>
+        </Section>
+
+        {/* agent status */}
+        <Section id="agent-status" title="devforge agent status" badge="Agent">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Reports the current agent status, active provider configuration, and memory connectivity/health.
+          </p>
+          <CodeBlock code="npx devforge agent status" />
+        </Section>
+
+        {/* agent reset */}
+        <Section id="agent-reset" title="devforge agent reset" badge="Agent">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Clears stored AI provider credentials, prompts, and local cache variables, forcing a clean re-initialization on the next run.
+          </p>
+          <CodeBlock code="npx devforge agent reset" />
+        </Section>
+
+        {/* agent graph status */}
+        <Section id="agent-graph-status" title="devforge agent graph status" badge="Agent">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Shows the last LangGraph run metadata and active checkpoint details (local/cloud).
+          </p>
+          <CodeBlock code="npx devforge agent graph status" />
+        </Section>
+
+        {/* agent graph reset */}
+        <Section id="agent-graph-reset" title="devforge agent graph reset" badge="Agent">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Clears LangGraph memory state, current session checkpoints, and local trace records for the project.
+          </p>
+          <CodeBlock code="npx devforge agent graph reset" />
+        </Section>
+
+        {/* cache clear */}
+        <Section id="cache-clear" title="devforge cache clear" badge="Cache">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Purges cached stack detection results, template schemas, and CLI metadata to force a full re-scan.
+          </p>
+          <CodeBlock code="npx devforge cache clear" />
+        </Section>
+
+        {/* cache stats */}
+        <Section id="cache-stats" title="devforge cache stats" badge="Cache">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Displays cache stats such as hit/miss counts, entry sizes, and cache age metrics.
+          </p>
+          <CodeBlock code="npx devforge cache stats" />
+        </Section>
+
+        {/* cache test-elasticache */}
+        <Section id="cache-test-elasticache" title="devforge cache test-elasticache" badge="Cache">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Validates network connectivity and latency tests to the configured Amazon ElastiCache Redis cluster.
+          </p>
+          <CodeBlock code="npx devforge cache test-elasticache" />
+        </Section>
+
+        {/* memory stats */}
+        <Section id="memory-stats" title="devforge memory:stats" badge="Memory">
+          <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Displays Elasticsearch recommendation database statistics, total indexed findings, and workspace key assignments.
+          </p>
+          <CodeBlock code="npx devforge memory:stats" />
+        </Section>
+
         {/* recommendations */}
         <Section id="recommendations" title="devforge recommendations" badge="Agent">
           <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
@@ -272,7 +368,7 @@ export default function CommandsPage() {
         <h2 className="text-xl font-bold mb-4">Related</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {[
-            { href: '/docs/agent/how-it-works', title: 'Agent System', desc: 'How the LLM agent enriches each command.' },
+            { href: '/docs/agentic-workflow#how-it-works', title: 'Agent System', desc: 'How the LLM agent enriches each command.' },
             { href: '/docs/security/model', title: 'Security Model', desc: 'What DevForge reads and never touches.' },
             { href: '/docs/iac/detection', title: 'IaC Detection', desc: 'How deploy detects and executes infrastructure code.' },
             { href: '/docs/getting-started/offline-mode', title: 'Offline Mode', desc: 'Run all commands without an LLM provider.' },

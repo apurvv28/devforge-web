@@ -30,6 +30,7 @@ const commandsList = [
   { cmd: 'devforge rollback', desc: 'Revert the workspace files back to a previous generation transaction.', cat: 'Core' },
   { cmd: 'devforge audit', desc: 'Scan workflows and infrastructure configurations for security anomalies.', cat: 'Security' },
   { cmd: 'devforge deploy', desc: 'Run steps defined in the deployment plan (AWS integration).', cat: 'Deployment' },
+  { cmd: 'devforge jenkins setup', desc: 'Set up a Jenkins job and GitHub webhook wiring.', cat: 'Integration' },
   { cmd: 'devforge diagnose', desc: 'Evaluate log files to isolate compilation or pipeline failures.', cat: 'Diagnostics' },
   { cmd: 'devforge agent status', desc: 'Report active provider configuration and Elasticsearch connection state.', cat: 'Agent' },
   { cmd: 'devforge agent reset', desc: 'Reset stored provider tokens and prompt for setup.', cat: 'Agent' },
@@ -37,8 +38,10 @@ const commandsList = [
   { cmd: 'devforge agent graph reset', desc: 'Clear checkpoints and local history memory for graphs.', cat: 'Agent' },
   { cmd: 'devforge cache clear', desc: 'Flush all local stack metadata cache entries.', cat: 'Cache' },
   { cmd: 'devforge cache stats', desc: 'Review cache hits, age, and size metrics.', cat: 'Cache' },
+  { cmd: 'devforge cache test-elasticache', desc: 'Test Amazon ElastiCache Redis connectivity.', cat: 'Cache' },
   { cmd: 'devforge memory:stats', desc: 'Retrieve Elasticsearch recommendation learning index details.', cat: 'Memory' },
-  { cmd: 'devforge recommendations', desc: 'Review list of active recommendations.', cat: 'Agent' }
+  { cmd: 'devforge recommendations', desc: 'Review list of active recommendations.', cat: 'Agent' },
+  { cmd: 'devforge recommendations dismiss <id>', desc: 'Dismiss a stored recommendation by its unique ID.', cat: 'Agent' }
 ]
 
 export default function CliReferencePage() {

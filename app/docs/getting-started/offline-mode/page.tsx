@@ -198,9 +198,9 @@ export default function OfflineModePage() {
         <div className="grid sm:grid-cols-2 gap-4">
           {[
             { href: '/docs/getting-started/installation', title: 'Installation & Quick Start', desc: 'Full setup guide with LLM provider configuration.' },
-            { href: '/docs/agent/llm-setup', title: 'LLM Provider Setup', desc: 'Add AI enrichment when you are ready.' },
-            { href: '/docs/commands/init', title: 'devforge init reference', desc: 'All flags and options in detail.' },
-            { href: '/docs/agent/cache', title: 'Cache System', desc: 'Understand and manage the detection cache.' },
+            { href: '/docs/agentic-workflow#llm-setup', title: 'LLM Provider Setup', desc: 'Add AI enrichment when you are ready.' },
+            { href: '/docs/commands#init', title: 'devforge init reference', desc: 'All flags and options in detail.' },
+            { href: '/docs/agentic-workflow#cache', title: 'Cache System', desc: 'Understand and manage the detection cache.' },
           ].map((item) => (
             <Link key={item.href} href={item.href}
               className="flex items-center justify-between p-4 rounded-xl border transition-all hover:scale-[1.02]"

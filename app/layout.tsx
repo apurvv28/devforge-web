@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { GeistSans, GeistMono } from './fonts'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { ChangelogPopup } from '@/components/ChangelogPopup'
 import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="theme-transition">
         <ThemeProvider>
           {children}
+          <ChangelogPopup />
         </ThemeProvider>
         <Analytics />
       </body>
